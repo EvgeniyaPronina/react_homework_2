@@ -22,7 +22,7 @@ class Comment extends Component {
 
 Comment.propTypes = {
   text: PropTypes.string,
-  id: PropTypes.number,
+  id: PropTypes.string,
   onDelete: PropTypes.func
 };
 

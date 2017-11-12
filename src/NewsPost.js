@@ -63,7 +63,8 @@ class NewsPost extends Component {
 }
 
 NewsPost.propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string,
+  id: PropTypes.string
 };
 
 export default NewsPost;
