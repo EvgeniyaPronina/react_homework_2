@@ -1,7 +1,7 @@
 import React from 'react';
 import App from '../App';
 import NewsPost from '../NewsPost';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('App component', () => {
   const wrapper = shallow(<App />);
@@ -39,15 +39,15 @@ describe('App component', () => {
   describe('check callbacks', () => {
     it('save from input to state.newsInput', () => {
       const wrapper = shallow(<App />);
-      wrapper.find('input').simulate('change', {target: {value: 10}});
+      wrapper.find('input').simulate('change', { target: { value: 10 } });
       wrapper.update();
       expect(wrapper.state().newsInput).toEqual(10);
     });
     it('create new post from value state.newsInput on press enter', () => {
       const wrapper = shallow(<App />);
-      wrapper.find('input').simulate('change', {target: {value: 10}});
+      wrapper.find('input').simulate('change', { target: { value: 10 } });
       wrapper.update();
-      wrapper.find('input').simulate('keyDown', {keyCode: 13});
+      wrapper.find('input').simulate('keyDown', { keyCode: 13 });
       expect(wrapper.state().newsInput).toEqual('');
       expect(wrapper.state().news[0].text).toEqual(10);
     });
@@ -56,9 +56,9 @@ describe('App component', () => {
   describe('check Comments rendering', () => {
     it('render NewsPost component on create new post', () => {
       const wrapper = shallow(<App />);
-      wrapper.find('input').simulate('change', {target: {value: 10}});
+      wrapper.find('input').simulate('change', { target: { value: 10 } });
       wrapper.update();
-      wrapper.find('input').simulate('keyDown', {keyCode: 13});
+      wrapper.find('input').simulate('keyDown', { keyCode: 13 });
       wrapper.update();
       const newsFromState = wrapper.state().news[0];
       expect(

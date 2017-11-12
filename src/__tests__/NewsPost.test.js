@@ -1,7 +1,7 @@
 import React from 'react';
 import NewsPost from '../NewsPost';
 import Comment from '../Comment';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('NewsPost component', () => {
   describe('test render', () => {
@@ -47,23 +47,23 @@ describe('NewsPost component', () => {
   describe('check callbacks', () => {
     it('save from input to state.commentInput', () => {
       const wrapper = shallow(<NewsPost id={1} text={'test'} />);
-      wrapper.find('input').simulate('change', {target: {value: 10}});
+      wrapper.find('input').simulate('change', { target: { value: 10 } });
       wrapper.update();
       expect(wrapper.state().commentInput).toEqual(10);
     });
     it('create new comment from value state.commentInput on press enter', () => {
       const wrapper = shallow(<NewsPost id={1} text={'test'} />);
-      wrapper.find('input').simulate('change', {target: {value: 10}});
+      wrapper.find('input').simulate('change', { target: { value: 10 } });
       wrapper.update();
-      wrapper.find('input').simulate('keyDown', {keyCode: 13});
+      wrapper.find('input').simulate('keyDown', { keyCode: 13 });
       expect(wrapper.state().commentInput).toEqual('');
       expect(wrapper.state().comments[0].text).toEqual(10);
     });
     it('delete comment on call handleDelete', () => {
       const wrapper = shallow(<NewsPost id={1} text={'test'} />);
-      wrapper.find('input').simulate('change', {target: {value: 10}});
+      wrapper.find('input').simulate('change', { target: { value: 10 } });
       wrapper.update();
-      wrapper.find('input').simulate('keyDown', {keyCode: 13});
+      wrapper.find('input').simulate('keyDown', { keyCode: 13 });
       wrapper.instance().handleDelete(wrapper.state().comments[0].id);
       wrapper.update();
       expect(wrapper.state().comments).toEqual([]);
@@ -73,9 +73,9 @@ describe('NewsPost component', () => {
   describe('check Comments rendering', () => {
     it('render Comment component on create new comment', () => {
       const wrapper = shallow(<NewsPost id={1} text={'test'} />);
-      wrapper.find('input').simulate('change', {target: {value: 10}});
+      wrapper.find('input').simulate('change', { target: { value: 10 } });
       wrapper.update();
-      wrapper.find('input').simulate('keyDown', {keyCode: 13});
+      wrapper.find('input').simulate('keyDown', { keyCode: 13 });
       wrapper.update();
       const commentFromState = wrapper.state().comments[0];
       expect(

@@ -1,6 +1,6 @@
 import React from 'react';
 import Comment from '../Comment';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('Comment component', () => {
   const onDeleteMock = jest.fn();
